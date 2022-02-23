@@ -1,6 +1,20 @@
 import { useState } from "react";
 
-export default function SpecificIP() {
+
+
+type Props = {
+    setState: React.Dispatch<React.SetStateAction<any>>;
+};
+
+interface specificIpData {
+    lat: number;
+    lng: number;
+    maxR: number;
+    propagationSpeed:number;
+    repeatPeriod: number; 
+}
+
+function SpecificIP<Props>({ setSpecificIpData }:any) {
 
     interface SpecificApiData {
         ip: string;
@@ -11,10 +25,13 @@ export default function SpecificIP() {
         longitude: number;    
     }
 
+    
+
     const [inputIP, setinputIP] = useState<string>('')
     const [specificApiData, setSpevificApiData] = useState<SpecificApiData>({} as any)
     const [checking, setChecking] = useState<boolean>(false)
     const [error, setError] = useState<string>('')
+
 
     function GetSpecificIP(ip:string) {
         setinputIP('')
@@ -27,6 +44,13 @@ export default function SpecificIP() {
             setError('')
             console.log(data)
             setSpevificApiData(data)
+            setSpecificIpData({
+                lat: data.latitude,
+                lng: data.longitude,
+                maxR: 5,
+                propagationSpeed: 2,
+                repeatPeriod: 1000
+            })
             setChecking(true)
         })
         .catch(err => {
@@ -128,3 +152,5 @@ export default function SpecificIP() {
             </div>
     )
 }
+
+export {SpecificIP}

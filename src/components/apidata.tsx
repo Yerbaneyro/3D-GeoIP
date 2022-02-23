@@ -1,21 +1,35 @@
 import { useState, useRef, useEffect } from 'react';
 import Globe from 'react-globe.gl';
-import SpecificIP from './specificip';
+import { SpecificIP } from './specificip';
+
+
 
 export default function ApiData() {
 
+    const globeEl:any = useRef(); 
+    
     const [loading, setLoading] = useState<boolean>(false)
 
     interface apiData {
         ip: string;
         country_name: string;
         city: string;
-        zip_code:string;
+        zip_code: string;
         latitude: number;
         longitude: number;    
     }
 
+    interface specificIpData {
+        lat: number;
+        lng: number;
+        maxR: number;
+        propagationSpeed:number;
+        repeatPeriod: number; 
+    }
+
     const [apiData, setapiData] = useState<apiData>({} as any)
+
+    const [specificIpData, setSpecificIpData] = useState<specificIpData>({} as any)
 
     useEffect(() => {
         fetch("https://api.freegeoip.app/json/?apikey=0ef75800-9419-11ec-b1aa-f93e522458e7", {
@@ -32,13 +46,18 @@ export default function ApiData() {
         });
         }, [setLoading]);
 
-    const gData:object[] = [{
+    const gData:specificIpData[] = [{
         lat: apiData.latitude,
         lng: apiData.longitude,
         maxR: 5,
         propagationSpeed: 2,
         repeatPeriod: 1000
-    }];
+    }, specificIpData ];
+
+    useEffect(() => {
+        
+        globeEl.current.pointOfView({lat: apiData.latitude, lng: apiData.longitude, altitude: 1.4 }, 100);
+    }, [apiData]);
 
     if(loading == false) {
         return(
@@ -47,7 +66,8 @@ export default function ApiData() {
                     <p>Loading Data</p>
                 </div>
                 <Globe 
-                
+                ref={globeEl}
+
                 width={500}
                 height={500}
     
@@ -103,6 +123,8 @@ export default function ApiData() {
                 </div>
             </div>
             <Globe 
+
+            ref={globeEl}
             
             width={500}
             height={500}
@@ -119,7 +141,7 @@ export default function ApiData() {
             
             
             />
-            <SpecificIP />
+            <SpecificIP setSpecificIpData={setSpecificIpData}/>
         </div>
 
     )
