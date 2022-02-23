@@ -1,6 +1,11 @@
 .App {
     text-align: center;
     background-color: rgb(255, 255, 255);
+
+    a {
+        color: #FFFFFF;
+        text-decoration: none;
+    }
 }
 
 .menu-bar {
@@ -25,6 +30,11 @@
 
         a {
             margin: 30px 20px;
+            cursor: pointer;
+        }
+
+        a:hover {
+            color: aqua;
         }
 
     }
@@ -116,4 +126,30 @@ button {
     position: relative;
     bottom: 130px;
     left: 220px;
+    cursor: pointer;
+}
+
+#user-ip {
+    color: red;
+}
+
+#specific-ip {
+    color: blue;
+}
+
+.icon {
+    margin-right: 10px;
+    position: relative;
+    top: 2px;
+}
+.logo-color {
+    color: aqua;
+}
+
+.technologies {
+    width: 15px;
+    height: 15px;
+    margin: 3px;
+    position: relative;
+    top: 5px;
 }

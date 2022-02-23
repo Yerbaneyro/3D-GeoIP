@@ -9,6 +9,7 @@ type Props = {
 interface specificIpData {
     lat: number;
     lng: number;
+    color: string;
     maxR: number;
     propagationSpeed:number;
     repeatPeriod: number; 
@@ -47,6 +48,7 @@ function SpecificIP<Props>({ setSpecificIpData }:any) {
             setSpecificIpData({
                 lat: data.latitude,
                 lng: data.longitude,
+                color: 'blue',
                 maxR: 5,
                 propagationSpeed: 2,
                 repeatPeriod: 1000
@@ -68,7 +70,7 @@ function SpecificIP<Props>({ setSpecificIpData }:any) {
                     </div>
                     <div>
                         <p> IP address:</p>
-                        <p>{specificApiData.ip}</p> 
+                        <p id="specific-ip">{specificApiData.ip}</p> 
                     </div>
                     <div>
                         <p> Country: </p>

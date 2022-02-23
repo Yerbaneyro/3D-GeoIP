@@ -3,6 +3,11 @@
   background-color: white;
 }
 
+.App a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
 .menu-bar {
   text-align: left;
   z-index: 1;
@@ -31,6 +36,11 @@
 
 .menu-bar nav a {
   margin: 30px 20px;
+  cursor: pointer;
+}
+
+.menu-bar nav a:hover {
+  color: aqua;
 }
 
 .logo {
@@ -133,5 +143,32 @@ button {
   position: relative;
   bottom: 130px;
   left: 220px;
+  cursor: pointer;
+}
+
+#user-ip {
+  color: red;
+}
+
+#specific-ip {
+  color: blue;
+}
+
+.icon {
+  margin-right: 10px;
+  position: relative;
+  top: 2px;
+}
+
+.logo-color {
+  color: aqua;
+}
+
+.technologies {
+  width: 15px;
+  height: 15px;
+  margin: 3px;
+  position: relative;
+  top: 5px;
 }
 /*# sourceMappingURL=App.css.map */
