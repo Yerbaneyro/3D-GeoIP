@@ -3,17 +3,117 @@
     background-color: rgb(255, 255, 255);
 }
 
-.title {
-    position: fixed;
-    top: 50px;
-    left: 50px;
+.menu-bar {
+    text-align: left;
     z-index: 1;
-    color: black;
+    color: rgb(255, 255, 255);
+    background-color: rgb(44, 43, 43);
+    padding: 10px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+
+    h2 {
+        font-size: 14px;
+        margin-left: 27px;
+        position: relative;
+        bottom: 25px;
+    }
+
+    nav {
+        margin-top: 35px;
+
+        a {
+            margin: 30px 20px;
+        }
+
+    }
+}
+
+.logo {
+    margin-left: 30px;
 }
 
 .globe-container {
     display: flex;
-    justify-content: space-around;
-    margin-top: 200px;
-    border: 2px solid black;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+
+}
+
+.data-container-left {
+    width: 300px;
+    min-height: 100px;
+    margin-top: 50px;
+    margin-right: 140px;
+    text-align: left;
+
+    div {
+        background-color: rgba(209, 191, 191, 0.493);
+        padding: 1px 0px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    p{
+        margin: 5px 10px;
+    }
+}
+
+.data-container-right {
+    width: 300px;
+    min-height: 00px;
+    margin-top: 50px;
+    margin-left: 140px;
+    text-align: left;
+
+    div {
+        background-color: rgba(209, 191, 191, 0.493);
+        padding: 1px 0px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    p{
+        margin: 5px 10px;
+    }
+
+    form {
+        text-align: center;
+        padding-bottom: 150px;
+    }
+}
+
+#data-header {
+    background-color: rgb(44, 43, 43);
+    border-bottom: 2px solid rgb(219, 205, 205);
+    color: white;
+    justify-content: center;
+}
+
+#text {
+    display: block;
+
+    h3 {
+        text-align: center;
+    }
+}
+
+#error {
+    text-align: center;
+    color: red;
+    position: relative;
+    bottom: 140px;
+}
+
+input {
+    width: 150px;
+    margin-left: 10px;
+}
+
+button {
+    position: relative;
+    bottom: 130px;
+    left: 220px;
 }
